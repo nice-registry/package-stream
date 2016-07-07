@@ -1,6 +1,7 @@
 # package-stream
 
-An endless stream of [clean package data](http://npm.im/nice-package) from the npm registry.
+An endless stream of [clean package data](https://github.com/zeke/nice-package)
+from the npm registry.
 
 See also [all-the-packages](https://github.com/zeke/all-the-packages), a similar
 package designed for offline use.
