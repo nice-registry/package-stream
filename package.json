@@ -1,0 +1,37 @@
+{
+  "name": "package-stream",
+  "version": "1.0.0",
+  "description": "An endless stream of clean package data from the npm registry.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js | tap-spec"
+  },
+  "repository": "https://github.com/zeke/package-stream",
+  "keywords": [
+    "npm",
+    "registry",
+    "stream",
+    "packages",
+    "events",
+    "normalize",
+    "package.json"
+  ],
+  "author": "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zeke/package-stream/issues"
+  },
+  "homepage": "https://github.com/zeke/package-stream#readme",
+  "dependencies": {
+    "changes-stream": "^1.1.0",
+    "got": "^6.3.0",
+    "nice-package": "^1.0.4"
+  },
+  "devDependencies": {
+    "tap-spec": "^4.1.1",
+    "tape": "^4.6.0"
+  },
+  "engines": {
+    "node": ">4"
+  }
+}
