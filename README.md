@@ -34,6 +34,25 @@ registry
   })
 ```
 
+#### Options
+
+The [`changes-stream`](http://ghub.io/changes-stream) package is used
+under the hood, and
+[all of its options](https://github.com/jcrugzz/changes-stream#options)
+are supported by `package-stream`. The default options used by `package-stream`
+are:
+
+```js
+{
+  db: 'https://skimdb.npmjs.com/registry',
+  include_docs: true
+}
+```
+
+The options you provide are merged with the defaults above.
+
+#### Convenience Methods
+
 Each package instance has convenience methods like `pkg.dependsOn(pkgName)`
 and `pkg.mentions(query)`. To see the full list, check out the
 [nice-package documentation](https://github.com/zeke/nice-package/blob/master/README.md#convenience-methods).
