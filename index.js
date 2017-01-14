@@ -10,7 +10,7 @@ util.inherits(Emitter, EventEmitter)
 module.exports = function (opts) {
   if (!opts) opts = {}
   var defaults = {
-    db: 'https://skimdb.npmjs.com/registry',
+    db: 'https://replicate.npmjs.com',
     include_docs: true
   }
   opts = Object.assign(defaults, opts)
