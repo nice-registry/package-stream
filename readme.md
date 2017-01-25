@@ -21,7 +21,7 @@ event. It remains open indefinitely, emitting `package` events as new package
 versions are published to the npm registry in real time.
 
 ```js
-var registry = require('package-stream')()
+const registry = require('package-stream')()
 
 registry
   .on('package', function (pkg) {
