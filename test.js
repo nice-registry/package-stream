@@ -11,9 +11,13 @@ test('packageStream', function (t) {
         console.log(pkg.validationErrors)
       }
       t.ok(pkg.valid, 'is valid')
-    })
-    .on('up-to-date', function (pkg) {
-      t.end()
-      process.exit()
+
+      // bail after a while
+      if (++i > 10 * 1000) done(t)
     })
 })
+
+function done (t) {
+  t.end()
+  process.exit()
+}
