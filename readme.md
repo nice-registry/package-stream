@@ -44,7 +44,7 @@ are:
 
 ```js
 {
-  db: 'https://skimdb.npmjs.com/registry',
+  db: 'https://replicate.npmjs.com',
   include_docs: true
 }
 ```
