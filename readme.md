@@ -1,6 +1,6 @@
 # package-stream
 
-An endless stream of [clean package data](https://github.com/zeke/nice-package)
+An endless stream of [nice package data](https://github.com/zeke/nice-package)
 from the npm registry.
 
 See also [all-the-packages](https://github.com/zeke/all-the-packages), a similar
@@ -20,6 +20,7 @@ existing packages, but unlike typical read streams, this stream has no `end`
 event. It remains open indefinitely, emitting `package` events as new package
 versions are published to the npm registry in real time.
 
+
 ```js
 const registry = require('package-stream')()
 
@@ -34,7 +35,38 @@ registry
   })
 ```
 
-#### Options
+### Nice Packages
+
+Each object emitted by the `package` event is a 
+[nice-package](http://ghub.io/nice-package) instance.
+Nice packages have cleaner metadata than you'd get directly from the npm 
+registry, and some handy 
+[convenience methods](https://github.com/nice-registry/nice-package#convenience-methods)
+.
+
+Here's an example that uses the 
+[`somehowDependsOn()`](https://github.com/nice-registry/nice-package#pkgsomehowdependsonpkgname) 
+method to find all packages the have `choo` in their `dependencies` or 
+`devDependencies`:
+
+```js
+const registry = require('package-stream')()
+const dependents = []
+
+registry
+  .on('package', function (pkg) {
+    if (pkg.someHowDependsOn('choo')) dependents.push(pkg.name)
+  })
+  .on('up-to-date', function () {
+    process.stdout.write(JSON.stringify(dependents))
+    process.exit()
+  })
+```
+
+To see the full list of available methods, check out the
+[nice-package documentation](https://github.com/zeke/nice-package/blob/master/README.md#convenience-methods).
+
+### Options
 
 The [`changes-stream`](http://ghub.io/changes-stream) package is used
 under the hood, and
@@ -50,12 +82,6 @@ are:
 ```
 
 The options you provide are merged with the defaults above.
-
-#### Convenience Methods
-
-Each package instance has convenience methods like `pkg.dependsOn(pkgName)`
-and `pkg.mentions(query)`. To see the full list, check out the
-[nice-package documentation](https://github.com/zeke/nice-package/blob/master/README.md#convenience-methods).
 
 ## Tests
 
