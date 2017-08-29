@@ -1,6 +1,6 @@
 {
   "name": "package-stream",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "An endless stream of clean package data from the npm registry.",
   "main": "index.js",
   "scripts": {
