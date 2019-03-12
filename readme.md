@@ -14,7 +14,7 @@ npm install package-stream --save
 
 ## Usage
 
-The stream is an event emitter that emits two events: `pkg` and `up-to-date`.
+The stream is an event emitter that emits two events: `package` and `up-to-date`.
 The `up-to-date` event is emitted when the stream reaches the end of all
 existing packages, but unlike typical read streams, this stream has no `end`
 event. It remains open indefinitely, emitting `package` events as new package
