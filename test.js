@@ -5,7 +5,9 @@ var i = 0
 
 test('packageStream', function (t) {
   stream
-    .on('package', function (pkg) {
+    .on('package', function (pkg, seq) {
+      t.equal(typeof seq, 'number', 'has a sequence number')
+    
       t.comment(pkg.name)
       if (!pkg.valid) {
         console.log(pkg.validationErrors)
