@@ -24,7 +24,7 @@ module.exports = function (opts) {
     changes.on('data', function (change) {
       var pkg = new Package(change.doc)
       if (!pkg.valid) return
-      emitter.emit('package', pkg)
+      emitter.emit('package', pkg, change.seq)
       if (change.seq >= finalUpdate) return emitter.emit('up-to-date')
     })
   })

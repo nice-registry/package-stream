@@ -25,8 +25,9 @@ versions are published to the npm registry in real time.
 const registry = require('package-stream')()
 
 registry
-  .on('package', function (pkg) {
-    // nice clean package object
+  .on('package', function (pkg, seq) {
+    // pkg: nice clean package object
+    // seq: the sequence number of the "package" event, useful for logging/tracking
   })
   .on('up-to-date', function () {
     // consumed all changes (for now)
